@@ -139,7 +139,7 @@ class Tailwindcss::CommandsTest < ActiveSupport::TestCase
         Tailwindcss::Commands.stub(:rails_css_compressor?, true) do
           actual = Tailwindcss::Commands.compile_command(exe_path: dir)
           assert_kind_of(Array, actual)
-          refute_includes(actual, "--minify")
+          assert_includes(actual, "--minify")
         end
 
         Tailwindcss::Commands.stub(:rails_css_compressor?, false) do
